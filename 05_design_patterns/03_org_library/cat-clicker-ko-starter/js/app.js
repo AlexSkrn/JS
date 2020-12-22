@@ -23,15 +23,17 @@ var Cat = function(){
     return title;
   }, this);
 
+  this.incrementCounter = function() {
+    this.clickCount(this.clickCount() + 1);
+  };
+
 };
 
 var ViewModel = function() {
 
   this.currentCat = ko.observable(new Cat());
 
-  this.incrementCounter = function() {
-    this.currentCat().clickCount(this.currentCat().clickCount() + 1);
-  };
+
 
 }
 

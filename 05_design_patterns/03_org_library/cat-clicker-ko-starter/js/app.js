@@ -10,18 +10,21 @@ var ViewModel = function() {
   };
 
   this.level = ko.computed(function() {
-    if (this.clickCount() >= 3 && this.clickCount() < 13) {
-      return 'Infant';
+    var title;
+    var clicks = this.clickCount();
+    if (clicks < 4) {
+      title = 'Newborn';
     }
-    else if (this.clickCount() >= 13 && this.clickCount() < 20) {
-      return 'Teen';
+    else if (clicks < 13) {
+      title = 'Infant';
     }
-    else if (this.clickCount() >= 20) {
-      return 'Old';
+    else if (clicks < 21) {
+      title = 'Teen';
     }
     else {
-      return 'Newborn';
+      title = 'Old';
     }
+    return title;
   }, this);
 }
 

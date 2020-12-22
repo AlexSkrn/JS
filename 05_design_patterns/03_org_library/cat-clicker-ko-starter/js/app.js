@@ -23,17 +23,25 @@ var Cat = function(){
     return title;
   }, this);
 
-  this.incrementCounter = function() {
-    this.clickCount(this.clickCount() + 1);
-  };
+
 
 };
 
 var ViewModel = function() {
+  // alternative solution, using self var to define the ViewModel
+  var self = this;
 
   this.currentCat = ko.observable(new Cat());
 
+  // this.incrementCounter = function() {
+  //   // this represents currentCat's binding context=scope
+  //   this.clickCount(this.clickCount() + 1);
+  // };
 
+  this.incrementCounter = function() {
+    // self represents the ViewModel
+    self.currentCat().clickCount(self.currentCat().clickCount() + 1);
+  };
 
 }
 

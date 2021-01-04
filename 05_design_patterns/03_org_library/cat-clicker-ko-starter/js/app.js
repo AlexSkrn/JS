@@ -77,10 +77,13 @@ var ViewModel = function() {
 
   this.showCat = function(clickedCat) {
     // [ PROBLEM: how to make clickedCat object visible? ]
-    newCatIndex = self.catList.indexOf(clickedCat);
+    // Getting index is not necessary
+    // newCatIndex = self.catList.indexOf(clickedCat);
     // console.log('Cat index in the catList =' + newCatIndex);
 
-    self.currentCat(self.catList()[newCatIndex]);  // this works
+    // self.currentCat(self.catList()[newCatIndex]);  // this works
+    // I can pass the clickedCat directly
+    self.currentCat(clickedCat);
 
   };
 
